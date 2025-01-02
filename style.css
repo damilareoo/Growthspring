@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 8rem 1rem 8rem;
 }
 
 .nav-links{
@@ -116,6 +116,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .primary-button button{
+       display: inline-flex; /* Ensures content is aligned horizontally and vertically */
+     justify-content: center; /* Centers content horizontally */
+     align-items: center; /* Centers content vertically */
+     white-space: nowrap; /* Prevents text from wrapping to the next line */
+     line-height: 1; /* Ensures text alignment is consistent */
     font-size: 1.25rem;
     border: 3px solid silver;
     outline: none;
@@ -124,9 +129,11 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #AD370C;
     color: #FEFEFE;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .secondary-button{
@@ -143,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #FEFEFE;
     color: #AD370C;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -450,6 +457,12 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     column-gap: 6rem;
     padding: 4rem 4rem 4rem 16rem;
+    background-color: #308C59; /* Base solid color */
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px), 
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 2px 2px, 3px 3px; /* Creates the grainy/noisy effect */
+  background-blend-mode: overlay; /* Blends the noise with the base color */
    
 
 }
@@ -461,7 +474,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    row-gap: 1.25rem;
+    row-gap: 0.75rem;
 }
 
 .ready-text-container{
@@ -510,6 +523,96 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: auto;
 }
+
+
+.background-image{
+    
+}
+
+
+
+section.testimonials {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .section-header p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Cards Container */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Individual Card */
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card img.logo {
+    width: 120px;
+    height:24px;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Author Section */
+  .author {
+    display: flex;
+    align-items: center;
+  }
+  
+  .author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .author div {
+    font-size: 14px;
+  }
+  
+  .author h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .author p {
+    margin: 0;
+    color: #888;
+  }
 
 
 
