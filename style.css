@@ -448,14 +448,17 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .ready-container{
-    width: 100%;
+    width: 75%;
     height: auto;
     color:#FEFEFE;
     display: flex;
+    flex-direction: row;
+    margin: 20px 200px 20px 200px;
     align-items: center;
     justify-content: center;
     column-gap: 6rem;
-    padding: 4rem 4rem 4rem 16rem;
+    padding: 4rem 4rem 4rem 8rem;
+    border: 1.25rem;
     background-color: #308C59; /* Base solid color */
   background-image: 
     radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px), 
@@ -484,7 +487,7 @@ h1, h2, h3, h4, h5, h6 {
 .ready-text-container p{
     font-size: 1.25rem;
     color: #FEFEFE;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .ready-body-text-container-1{
@@ -773,6 +776,8 @@ section.testimonials {
         font-size: 1.5rem;
     }
 }
+
+
 
 
 
