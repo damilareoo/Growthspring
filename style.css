@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     border: 3px solid silver;
     outline: none;
-    padding: 1rem 4rem 1rem 4rem;
+    padding: 1rem 2rem 1rem 2rem;
     border-radius: 6.25rem;
     background-color: #AD370C;
     color: #FEFEFE;
@@ -145,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     border: 3px solid #AD370C;
     outline: none;
-    padding: 1rem 4rem 1rem 4rem;
+    padding: 1rem 2rem 1rem 2rem;
     border-radius: 6.25rem;
     background-color: #FEFEFE;
     color: #AD370C;
@@ -614,6 +614,41 @@ section.testimonials {
 
 
 
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+
+  .hamburger-menu .line {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+  }
+  
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-menu a {
+    margin: 10px 0;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+
+
+
 
 
 
@@ -633,7 +668,19 @@ section.testimonials {
     .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .header-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 4rem 1rem 4rem;
+    }
+
 }
+
+
 
 /* Tablets and large mobile devices */
 @media screen and (max-width: 992px) {
@@ -679,7 +726,8 @@ section.testimonials {
         flex-wrap: wrap;
     }
 
-    .nav {
+    .nav-links {
+        display: none;
         order: 3;
         width: 100%;
         margin-top: var(--spacing-sm);
@@ -720,7 +768,7 @@ section.testimonials {
 /* Small mobile devices */
 @media screen and (max-width: 576px) {
     .container {
-        max-width: 100%;
+        max-width: 320px;
         padding: 0 var(--spacing-sm);
     }
 
@@ -734,7 +782,7 @@ section.testimonials {
 
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .btn {
@@ -777,6 +825,27 @@ section.testimonials {
     }
 }
 
+  
+  /* Responsive styles */
+@media screen and (max-width: 768px) {
+    .nav-links,
+    .primary-button {
+      display: none;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .mobile-menu {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  
 
 
 
