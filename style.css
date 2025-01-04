@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partners-text{
-    width: 18%;
+    width: 100;
     height: auto;
 }
 
@@ -243,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partners-logo-container{
-    width: 82%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -255,7 +255,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .partners-logo-container img{
     width: 110px;
-    height: 32px;
+    height: 24px;
 }   
 
 /* Features Section */
@@ -457,7 +457,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     column-gap: 6rem;
-    padding: 4rem 4rem 4rem 8rem;
+    padding: 4rem 4rem 4rem 4rem;
     border: 1.25rem;
     background-color: #308C59; /* Base solid color */
   background-image: 
@@ -487,16 +487,16 @@ h1, h2, h3, h4, h5, h6 {
 .ready-text-container p{
     font-size: 1.25rem;
     color: #FEFEFE;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.ready-body-text-container-1{
+.ready-body-text-container{
     width: 100%;
     height: auto;
 
 }
 
-.ready-body-text-container-1 p{
+.ready-body-text-container p{
     font-size: 1rem;
     color: #e8e8e8;
 }
@@ -506,28 +506,6 @@ h1, h2, h3, h4, h5, h6 {
     width: fit-content;
     height: auto;
 }
-
-
-
-.ready-body-text-container-2{
-    width: 100%;
-    height: auto;
-
-}
-
-.ready-body-text-container-2 p{
-    font-size: 1rem;
-    color: #e8e8e8;
-}
-
-
-.right-ready-container{
-    width: 100%;
-    height: auto;
-}
-
-
-
 
 section.testimonials {
     padding: 50px 20px;
@@ -573,7 +551,7 @@ section.testimonials {
   }
   
   .card img.logo {
-    width: 120px;
+    width: 110px;
     height:24px;
     margin-bottom: 15px;
   }
