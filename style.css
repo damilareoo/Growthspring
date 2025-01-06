@@ -1743,10 +1743,17 @@ section.testimonials {
 }
 
 /* Button Styles */
+.feature-icon img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon img {
+    transform: scale(1.1);
+}
+
 .primary-button button {
-    background: var(--color-orange);
-    color: white;
-    border: none;
     padding: 1rem 3.5rem;
     border-radius: 6.25rem;
     font-weight: 600;
@@ -1760,6 +1767,9 @@ section.testimonials {
     min-width: 180px;
     height: 3.5rem;
     white-space: nowrap;
+    background: var(--color-orange);
+    color: white;
+    border: none;
 }
 
 .primary-button button:hover {
@@ -1767,121 +1777,45 @@ section.testimonials {
     background: #8a2c09;
 }
 
+.background-image .primary-button button {
+    border-radius: 6.25rem;
+    border: 2px solid white;
+    background: var(--color-orange);
+    color: white;
+}
+
+.background-image .primary-button button:hover {
+    background: #8a2c09;
+}
+
 @media screen and (max-width: 992px) {
-    .hamburger-menu {
-        display: flex;
-        margin-left: auto;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .ready-container {
-        margin: var(--spacing-xs);
-    }
-
-    .ready-content {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-md);
-    }
-
-    .ready-text-container p {
-        font-size: 1.75rem;
-        color: white;
-    }
-
-    .ready-body-text-container p {
-        color: white;
-        opacity: 0.9;
-    }
-
-    .right-ready-container {
-        width: 100%;
-    }
-
-    .right-ready-container .primary-button {
-        width: 100%;
-        display: block;
-    }
-
     .right-ready-container .primary-button button {
         width: 100%;
+        border: 2px solid white;
+        border-radius: 6.25rem;
         background: var(--color-orange);
         color: white;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
-
-    .hamburger-menu {
-        display: flex;
-        margin-left: var(--spacing-sm);
-    }
-
-    .ready-container {
-        margin: var(--spacing-xs);
-    }
-
-    .ready-content {
-        gap: var(--spacing-sm);
-    }
-
-    .ready-text-container p {
-        font-size: 1.5rem;
-        margin-bottom: var(--spacing-xs);
-        color: white;
-    }
-
-    .ready-body-text-container p {
-        font-size: 1rem;
-        color: white;
-        opacity: 0.9;
-    }
-
     .right-ready-container .primary-button button {
         padding: 0.875rem 2rem;
         font-size: 1rem;
         width: 100%;
+        border: 2px solid white;
+        border-radius: 6.25rem;
         background: var(--color-orange);
         color: white;
-    }
-
-    .primary-button button {
-        padding: 0.875rem 2rem;
-        font-size: 1rem;
-        background: var(--color-orange);
     }
 }
 
 @media screen and (max-width: 576px) {
-    .hamburger-menu {
-        display: flex;
-        margin-left: auto;
-        padding: 4px;
-    }
-
-    .ready-container {
-        margin: var(--spacing-xs);
-    }
-
-    .ready-text-container p {
-        font-size: 1.25rem;
-        color: white;
-    }
-
-    .ready-body-text-container p {
-        color: white;
-        opacity: 0.9;
-    }
-
     .right-ready-container .primary-button button {
         padding: 0.75rem 1.5rem;
         width: 100%;
+        border: 2px solid white;
+        border-radius: 6.25rem;
         background: var(--color-orange);
         color: white;
     }
