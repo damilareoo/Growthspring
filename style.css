@@ -855,10 +855,10 @@ section:not(:first-child) {
     left: 0;
     right: 0;
     background: white;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.875rem;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -1005,16 +1005,16 @@ section:not(:first-child) {
     }
 
     .hero-image {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .hero-content {
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     /* Section Spacing */
     section {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
 
     .section-spacing {
