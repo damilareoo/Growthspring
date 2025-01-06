@@ -184,7 +184,6 @@ body::after {
 
 /* Ready to Grow Section */
 .background-image {
-    background: var(--color-primary);
     padding: var(--spacing-xl) 0;
     position: relative;
     z-index: 2;
