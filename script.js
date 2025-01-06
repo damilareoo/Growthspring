@@ -64,33 +64,71 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const mobileMenu = document.querySelector('.mobile-menu');
     const body = document.body;
+    let isMenuOpen = false;
 
+    // Toggle mobile menu
     hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('hidden');
+        isMenuOpen = !isMenuOpen;
         mobileMenu.classList.toggle('active');
-        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
+        body.style.overflow = isMenuOpen ? 'hidden' : '';
+        
+        // Animate hamburger
+        const spans = this.querySelectorAll('.line');
+        if (isMenuOpen) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
         }
     });
 
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.add('hidden');
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnHamburger && isMenuOpen) {
             mobileMenu.classList.remove('active');
             body.style.overflow = '';
+            isMenuOpen = false;
+            
+            const spans = hamburger.querySelectorAll('.line');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+
+    // Close menu when clicking on a mobile menu link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = '';
+            isMenuOpen = false;
+            
+            const spans = hamburger.querySelectorAll('.line');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
         });
+    });
+
+    // Close menu when window is resized above mobile breakpoint
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && isMenuOpen) {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = '';
+            isMenuOpen = false;
+            
+            const spans = hamburger.querySelectorAll('.line');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
     });
 
     // Add smooth scrolling to all links
