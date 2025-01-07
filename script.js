@@ -1,74 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
+    // Hamburger Menu
+    const hamburger = document.querySelector('.hamburger-menu');
     const mobileMenu = document.querySelector('.mobile-menu');
     const body = document.body;
-    let isMenuOpen = false;
 
-    // Hamburger menu click handler
-    hamburgerMenu.addEventListener('click', function() {
-        isMenuOpen = !isMenuOpen;
-        navLinks.classList.toggle('active');
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('active');
-        body.style.overflow = isMenuOpen ? 'hidden' : '';
-        
-        // Animate hamburger menu
-        const spans = this.querySelectorAll('span');
-        spans[0].style.transform = isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none';
-        spans[1].style.opacity = isMenuOpen ? '0' : '1';
-        spans[2].style.transform = isMenuOpen ? 'rotate(-45deg) translate(7px, -6px)' : 'none';
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const isClickInsideMenu = navLinks.contains(event.target) || mobileMenu.contains(event.target);
-        const isClickOnHamburger = hamburgerMenu.contains(event.target);
-        
-        if (!isClickInsideMenu && !isClickOnHamburger && isMenuOpen) {
-            navLinks.classList.remove('active');
-            hamburgerMenu.classList.remove('active');
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
-            isMenuOpen = false;
-            
-            const spans = hamburgerMenu.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-
-    // Close menu when window is resized above mobile breakpoint
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 992 && isMenuOpen) {
-            navLinks.classList.remove('active');
-            hamburgerMenu.classList.remove('active');
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
-            isMenuOpen = false;
-            
-            const spans = hamburgerMenu.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('active');
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('active');
-            body.style.overflow = '';
-            isMenuOpen = false;
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
-    });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+    }
 
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
