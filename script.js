@@ -111,19 +111,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.2
+        rootMargin: '-50px',
+        threshold: 0.15
     };
 
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // Once the animation is done, we can unobserve
+                sectionObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
+    // Add initial visible class to first section
+    if (sections.length > 0) {
+        sections[0].classList.add('visible');
+    }
+
+    // Observe all sections except the first one
+    sections.forEach((section, index) => {
+        if (index !== 0) {
+            sectionObserver.observe(section);
+        }
     });
 });
